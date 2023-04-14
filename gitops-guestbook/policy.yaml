@@ -1,0 +1,24 @@
+apiVersion: policy.elotl.co/v1alpha1
+kind: SchedulePolicy
+metadata:
+  name: app-guestbook
+spec:
+  namespaceSelector:
+    matchLabels:
+      kubernetes.io/metadata.name: guestbook
+  clusterSelector:
+    matchExpressions:
+      - key: nova.elotl.co/cluster.version
+        operator: In
+        values:
+        - v1.21.0
+      - key: cluster-under-maintenance
+        operator: DoesNotExist
+  resourceSelectors:
+    labelSelectors:
+      - matchLabels:
+          app.kubernetes.io/instance: guestbook
+  groupBy:
+    labelKey: app.kubernetes.io/version
+  spreadConstraints:
+    topologyKey: kubernetes.io/metadata.name
