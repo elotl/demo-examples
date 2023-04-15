@@ -12,6 +12,7 @@ spec:
         operator: In
         values:
         - "1.21"
+        - "1.25"
       - key: cluster-under-maintenance
         operator: DoesNotExist
   resourceSelectors:
@@ -21,5 +22,10 @@ spec:
   groupBy:
     labelKey: app.kubernetes.io/version
   spreadConstraints:
-    topologyKey: kubernetes.io/metadata.name
+    topologyKey: nova.elotl.co/cluster.version
+    percentageSplit:
+    - topologyValue: "1.21"
+      percentage: 75
+    - topologyValue: "1.25"
+      percentage: 25
 
