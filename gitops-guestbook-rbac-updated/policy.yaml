@@ -11,8 +11,8 @@ spec:
       - key: nova.elotl.co/cluster.version
         operator: In
         values:
-        - v1.21.0
-        - v1.25.0
+        - "1.21"
+        - "1.25"
       - key: cluster-under-maintenance
         operator: DoesNotExist
   resourceSelectors:

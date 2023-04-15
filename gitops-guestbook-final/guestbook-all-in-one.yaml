@@ -19,7 +19,7 @@ metadata:
     app.kubernetes.io/instance: guestbook
     app.kubernetes.io/version: v1
 spec:
-  replicas: 5
+  replicas: 4
   selector:
     matchLabels:
       app: redis
@@ -70,7 +70,7 @@ metadata:
     app.kubernetes.io/instance: guestbook
     app.kubernetes.io/version: v1
 spec:
-  replicas: 5
+  replicas: 4
   selector:
     matchLabels:
       app: redis
@@ -120,7 +120,7 @@ metadata:
     app.kubernetes.io/instance: guestbook
     app.kubernetes.io/version: v1
 spec:
-  replicas: 5
+  replicas: 4
   selector:
     matchLabels:
       app: guestbook

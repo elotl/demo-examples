@@ -11,8 +11,8 @@ spec:
       - key: nova.elotl.co/cluster.version
         operator: In
         values:
-        - v1.21.0
-        - v1.25.0
+        - "1.21"
+        - "1.25"
       - key: cluster-under-maintenance
         operator: DoesNotExist
   resourceSelectors:
@@ -24,7 +24,7 @@ spec:
   spreadConstraints:
     topologyKey: nova.elotl.co/cluster.version
     percentageSplit:
-    - topologyValue: v1.25.0
-      percentage: 20
-    - topologyValue: v1.21.0
-      percentage: 80
+    - topologyValue: "1.25"
+      percentage: 25
+    - topologyValue: "1.21"
+      percentage: 75
